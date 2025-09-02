@@ -59,7 +59,7 @@ export default function FolderCarousel() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-[1200px] overflow-hidden">
+    <section ref={containerRef} className=" w-[360px] md:w-[1200px] overflow-hidden">
       <div className="relative flex justify-center items-center w-full h-[280px] my-10">
         {SPONSORS.map(({ logo, src, alt }, i) => (
           <div

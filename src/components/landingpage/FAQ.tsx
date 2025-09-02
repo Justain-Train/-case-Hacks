@@ -16,18 +16,20 @@ export default function FAQ() {
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+
+  mm.add("(min-width: 768px)", () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: faqGrid.current,
-        start: "top 80%", 
+        start: "top 80%",
         end: "bottom 70%",
-        scrub: true
-
-        
+        scrub: true,
       },
     });
 
- 
     tl.from(faqTitle.current, {
       opacity: 0,
       y: -30,
@@ -35,19 +37,17 @@ export default function FAQ() {
       ease: "power2.out",
     });
 
-    tl.from(caseyImg.current, {
-      opacity: 0,
-      x: -40,
-      rotate: -10,
-      duration: 0.8,
-      ease: "back.out(1.7)",
-      scrollTrigger: {
-        trigger: faqGrid.current,
-        start: "top 80%",
-        end: "bottom 30%",
-        scrub: 1
-      }
-    }, "<"); // 
+    tl.from(
+      caseyImg.current,
+      {
+        opacity: 0,
+        x: -40,
+        rotate: -10,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+      },
+      "<"
+    );
 
     tl.from(
       faqGrid.current?.children || [],
@@ -56,11 +56,55 @@ export default function FAQ() {
         y: 40,
         duration: 0.6,
         ease: "power2.out",
-        stagger: 0.15, 
+        stagger: 0.15,
       },
-      "-=0.2" 
+      "-=0.2"
     );
   });
+
+  // 📱 Mobile
+  mm.add("(max-width: 767px)", () => {
+    gsap.from(faqTitle.current, {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: faqTitle.current,
+        start: "top 90%", 
+        toggleActions: "play none none none",
+      },
+    });
+
+    gsap.from(caseyImg.current, {
+      opacity: 0,
+      x: -20,
+      rotate: -5,
+      duration: 0.7,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: caseyImg.current,
+        start: "top 95%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    gsap.from(faqGrid.current?.children || [], {
+      opacity: 0,
+      y: 30,
+      duration: 0.5,
+      ease: "power2.out",
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: faqGrid.current,
+        start: "top 95%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+
+  return () => mm.revert(); 
+});
 
   return (
     <section id="faq" className="flex flex-col items-center justify-center mt-section">

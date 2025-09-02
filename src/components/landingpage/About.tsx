@@ -17,11 +17,14 @@ export default function About() {
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
   useGSAP(() => {
-    if (!container || !headText || !bodyText) return;
+  if (!container.current || !headText.current || !bodyText.current) return;
 
-    const split = SplitText.create(headText.current, {
-      type: "words",
-    });
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  const mm = gsap.matchMedia();
+
+  mm.add("(min-width: 768px)", () => {
+    const split = new SplitText(headText.current, { type: "words" });
 
     gsap.from(split.words, {
       duration: 1,
@@ -48,6 +51,36 @@ export default function About() {
       },
     });
   });
+
+  mm.add("(max-width: 767px)", () => {
+
+    gsap.from(headText.current, {
+      duration: 1,
+      opacity: 0,
+      y: 40,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 90%", 
+        toggleActions: "play none none none",
+      },
+    });
+
+    gsap.from(bodyText.current, {
+      duration: 1,
+      opacity: 0,
+      y: 30,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 95%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+
+  return () => mm.revert(); 
+});
   return (
     <div ref={container} className="mt-section" id="about">
       <div

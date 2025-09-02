@@ -18,6 +18,9 @@ export default function CTA() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+  const mm = gsap.matchMedia();
+
+  mm.add("(min-width: 768px)", () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
@@ -69,6 +72,38 @@ export default function CTA() {
     });
   });
 
+  mm.add("(max-width: 767px)", () => {
+    gsap.from(".cta-text", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    gsap.from(".cta-img", {
+      opacity: 0,
+      scale: 0.7,
+      y: 20,
+      rotate: gsap.utils.random(-10, 10),
+      duration: 0.6,
+      stagger: 0.15,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 95%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+
+  return () => mm.revert(); 
+});
+
   return (
     <section className="mt-section text-center relative" ref={containerRef}>
       <div className="mx-auto flex flex-col items-center justify-center relative">
@@ -78,7 +113,7 @@ export default function CTA() {
         <div className="absolute w-15 right-0 -top-[8rem] md:right-[10rem] md:-top-30 lg:right-[20rem] lg:-top-27 rotate-20 opacity-40">
           <img src={mail} alt="mail_pixel" className="block cta-img" />
         </div>
-        <div className="absolute w-15 -right-10 md:right-0 top-0 -rotate-10 opacity-40">
+        <div className="absolute w-15 -right-14 md:right-0 top-0 -rotate-10 opacity-40">
           <img src={savefile} alt="savefile_pixel" className="block cta-img" />
         </div>
         <div className="absolute w-15 -right-[3rem] md:right-0 lg:right-[7rem] top-[50%] rotate-10 opacity-40">

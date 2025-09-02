@@ -14,9 +14,10 @@ import Loader from "./components/ui/Loader";
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const isMobile = window.innerWidth < 768;
 
   useEffect(() => {
-    if (isLoaded) {
+    if (isLoaded && !isMobile) {
       gsap.registerPlugin(ScrollSmoother);
       const smoother = ScrollSmoother.create({
         smooth: 2,
@@ -26,7 +27,7 @@ export default function App() {
 
       return () => smoother.kill();
     }
-  }, [isLoaded]);
+  }, [isLoaded, isMobile]);
 
   return (
     <>

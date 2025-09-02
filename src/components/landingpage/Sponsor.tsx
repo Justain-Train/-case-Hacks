@@ -14,8 +14,12 @@ export default function Sponsor() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const goldenRef = useRef<HTMLSpanElement>(null);
 
-  useGSAP(() => {
- 
+useGSAP(() => {
+  if (!sectionRef.current || !goldenRef.current) return;
+
+  const mm = gsap.matchMedia();
+
+  mm.add("(min-width: 768px)", () => {
     gsap.fromTo(
       sectionRef.current,
       { y: 50, opacity: 0 },
@@ -27,12 +31,12 @@ export default function Sponsor() {
           trigger: sectionRef.current,
           start: "top 70%",
           end: "bottom 90%",
-          scrub: 3
+          scrub: 3,
         },
       }
     );
 
-    const split = SplitText.create(goldenRef.current, {type:"chars"});
+    const split = new SplitText(goldenRef.current, { type: "chars" });
 
     gsap.from(split.chars, {
       y: 150,
@@ -44,10 +48,39 @@ export default function Sponsor() {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top 80%",
-      }
+      },
+    });
+  });
+
+  mm.add("(max-width: 767px)", () => {
+    gsap.from(sectionRef.current, {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 95%", 
+        toggleActions: "play none none none",
+      },
     });
 
+    gsap.from(goldenRef.current, {
+      y: 40,
+      opacity: 0,
+      color: "#FFD700",
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 95%",
+        toggleActions: "play none none none",
+      },
+    });
   });
+
+  return () => mm.revert();
+});
 
   return (
     <section

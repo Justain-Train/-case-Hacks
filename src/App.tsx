@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollSmoother } from "gsap/all";
 
-const GrainBackground = lazy(() => import("./components/ui/GrainBackground"));
+
 const Navbar = lazy(() => import("./components/landingpage/Navbar"));
 const Hero = lazy(() => import("./components/landingpage/Hero"));
 const About = lazy(() => import("./components/landingpage/About"));
@@ -11,6 +11,7 @@ const FAQ = lazy(() => import("./components/landingpage/FAQ"));
 const CTA = lazy(() => import("./components/landingpage/CTA"));
 const Footer = lazy(() => import("./components/landingpage/Footer"));
 import Loader from "./components/ui/Loader";
+import GrainBackground from "./components/ui/GrainBackground";
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);

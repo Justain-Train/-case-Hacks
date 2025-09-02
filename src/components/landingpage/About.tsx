@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import teamPhoto from "../../assets/teamphoto.svg";
+import teamphoto from "../../assets/teamphoto.svg";
 import suitcase from "../../assets/pixelart/suitcase.png";
 import computer from "../../assets/pixelart/computer.png";
 import pin from "../../assets/pixelart/pin.png";
@@ -106,7 +106,7 @@ export default function About() {
         <div className="mt-14">
           <img
             className=" md:h-[25vw] lg:h-[18vw]"
-            src={teamPhoto}
+            src={teamphoto}
             alt="casehacksteamphoto"
           />
         </div>

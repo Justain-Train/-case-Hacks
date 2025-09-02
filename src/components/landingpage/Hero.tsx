@@ -4,7 +4,7 @@ import { DrawSVGPlugin, ScrollTrigger, MotionPathPlugin } from "gsap/all";
 import { useRef, useCallback, useState, useMemo } from "react";
 import { HashLink } from "react-router-hash-link";
 
-import biglogo from "../../assets/logos/Biglogo.svg";
+import biglogo from "../../assets/logos/biglogo.svg";
 import Button from "../ui/Button";
 import stars from "../../assets/pixelart/stars.svg";
 import instagram from "../../assets/socialmedialogos/instagram.svg";
@@ -228,7 +228,7 @@ export default function Hero() {
           <div>
             <a
               aria-label="Instagram"
-              href="https://www.instagram.com/thegoldenhackofficial/"
+              href="https://www.instagram.com/casehacks/"
               target="_blank"
               rel="noopener noreferrer"
             >

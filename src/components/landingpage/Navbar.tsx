@@ -1,5 +1,5 @@
 import NavItem from "../ui/NavItem";
-import smalllogo from "../../assets/logos/Smalllogo.svg";
+import smalllogo from "../../assets/logos/smalllogo.svg";
 import SecondaryButton from "../ui/SecondaryButton";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";

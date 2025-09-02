@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+@import "tailwindcss";
+@layer theme, base, components, utilities;
+
+@theme {
+  --color-background: #f6f4ed;
+  --color-font: #52443c;
+  --color-primary: #8571b6;
+  --color-secondary: #e8c766;
+  --color-button: #d7d1dd;
+  --font-figtree: "Figtree", sans-seriff;
+  --text-rg: 16px;
+  --breakpoint-3xl: 150rem;
+  --spacing-section: 17.625rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background;
+    @apply text-font;
+    @apply font-figtree;
+  }
+}
+

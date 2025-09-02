@@ -145,7 +145,10 @@ export default function Navbar() {
             <NavItem
               href=""
               label="Director Hiring!"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                window.open('https://docs.google.com/forms/d/e/1FAIpQLSeu7DMbr1K5n7CQtc90yryLO0nHTyBNhhb1BS5SSrYq-EBYow/viewform', '_blank');
+              }}
             />
           </ul>
         </div>

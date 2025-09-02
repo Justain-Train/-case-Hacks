@@ -1,5 +1,5 @@
 import footerscene from "../../assets/pixelart/footerscene.png";
-import footerscenemobile from "../../assets/pixelart/footersceneMobile.png";
+import footersceneMobile from "../../assets/pixelart/footersceneMobile.png";
 
 export default function Footer() {
   return (
@@ -22,7 +22,7 @@ export default function Footer() {
 
       <img
         className="w-[100%] [image-rendering:pixelated] md:hidden"
-        src={footerscenemobile}
+        src={footersceneMobile}
         alt="pixelartFooterSceneMobile"
       />
     </section>

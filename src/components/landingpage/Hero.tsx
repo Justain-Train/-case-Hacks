@@ -242,7 +242,7 @@ export default function Hero() {
           <div>
             <a
               aria-label="Linkedin"
-              href="https://www.linkedin.com/company/thegoldenhack/"
+              href="https://www.linkedin.com/company/case-hacks/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -256,7 +256,7 @@ export default function Hero() {
           <div>
             <a
               aria-label="X"
-              href="https://x.com/The_GoldenHack"
+              href="https://x.com/case_hacks"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -144,7 +144,7 @@ export default function CTA() {
             onClick={(e) => {
               
               e?.preventDefault();
-              window.open("https://discord.gg/4a39zu8p", "_blank");
+              window.open("https://discord.gg/tbYZvx9dRv", "_blank");
             }}
           />
         </div>

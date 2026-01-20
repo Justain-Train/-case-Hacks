@@ -140,10 +140,11 @@ export default function CTA() {
           </p>
           <Button
             text="Join Our Discord"
-            className="mt-8 py-2 px-4"
+            className="mt-8 py-2 px-4" 
             onClick={(e) => {
-              window.location.href = "https://discord.gg/WeUqHqQk";
+              
               e?.preventDefault();
+              window.open("https://discord.gg/4a39zu8p", "_blank");
             }}
           />
         </div>

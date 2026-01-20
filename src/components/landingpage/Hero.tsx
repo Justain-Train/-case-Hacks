@@ -12,7 +12,7 @@ import linkedin from "../../assets/socialmedialogos/linkedin.svg";
 import x from "../../assets/socialmedialogos/x.svg";
 import caseyblink from "../../assets/pixelart/caseyblink.gif";
 import caseystare from "../../assets/pixelart/caseystare.gif";
-import airplane from "../../assets/pixelart/airplane.png";
+//  import airplane from "../../assets/pixelart/airplane.png";
 import {
   getResultMessage,
   validateEmail,
@@ -78,32 +78,32 @@ export default function Hero() {
     );
   });
 
- const handleSubmit = useCallback(
-  async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    if (email === "") {
-      setHasError(true);
-      setButtonState(ButtonStates.EMPTY);
-      return;
-    }
+      if (email === "") {
+        setHasError(true);
+        setButtonState(ButtonStates.EMPTY);
+        return;
+      }
 
-    if (validateEmail(email)) {
-      setButtonState(ButtonStates.SUBMITTING);
+      if (validateEmail(email)) {
+        setButtonState(ButtonStates.SUBMITTING);
 
-      const state = await signUpForMailingList(email);
-      setButtonState(state);
+        const state = await signUpForMailingList(email);
 
-      if (state !== ButtonStates.SUBMITTED) {
+        setButtonState(state);
+        if (state !== ButtonStates.SUBMITTED) {
+          setHasError(true);
+        }
+      } else {
+        setButtonState(ButtonStates.INVALID);
         setHasError(true);
       }
-    } else {
-      setButtonState(ButtonStates.INVALID);
-      setHasError(true);
-    }
-  },
-  [email]
-);
+    },
+    [email]
+  );
 
   const resultMessage = useMemo(
     () => getResultMessage(buttonState),
@@ -145,7 +145,7 @@ export default function Hero() {
                     d="M188.015 1C189.418 1 198.556 1 221.301 2.61481C235.694 3.63669 255.617 7.45924 270.647 10.4148C285.678 13.3704 295.145 15.9541 306.51 20.5147C331.373 30.4924 346.32 40.4503 350.91 45.006C355.837 49.8961 361.897 54.7977 368.953 61.6239C373.1 65.6362 378.814 70.3879 386.964 80.9576C395.114 91.5273 405.633 107.675 411.578 117.609C419.26 130.444 421.062 137.006 424.239 149.646C426.656 159.261 428.118 175.85 429.201 187.887C430.921 206.991 429.584 218.549 427.82 227.171C425.965 236.24 420.754 247.234 413.342 260.089C405.555 273.595 395.602 280.558 388.547 285.104C384.196 287.907 378.686 292.233 369.484 297.626C360.282 303.018 347.659 309.478 335.72 314.743C313.286 324.638 297.154 328.523 288.143 329.501C273.148 331.13 264.564 326.918 254.114 322.675C248.597 320.436 243.302 313.569 238.345 305.426C234.886 299.745 235.832 292.361 236.182 285.353C236.393 281.144 239.36 278.953 242.361 277C249.351 272.454 260.569 271.446 276.433 270.629C301.376 269.344 319.394 271.76 324.871 272.9C334.406 274.885 345.555 281.84 363.629 293.736C380.122 304.591 381.045 319.03 383.17 328.322C385.021 336.416 382.48 342.547 379.834 345.307C375.849 349.463 363.799 356.219 341.729 363.706C329.971 367.695 316.503 370.547 277.905 375.925C239.306 381.303 175.838 388.731 141.214 393.042C106.589 397.353 102.732 398.322 92.68 399.79C66.5643 403.604 47.7751 405.192 43.5354 405.676C35.347 406.612 27.9685 409.42 20.8598 410.247C13.411 411.387 8.81002 412.366 5.62757 413.016C4.19839 413.344 3.14643 413.667 1 414"
                     fill="none"
                     stroke="white"
-                    strokeWidth="5" 
+                    strokeWidth="5"
                     strokeLinecap="round"
                   />
                 </mask>
@@ -160,15 +160,17 @@ export default function Hero() {
                 strokeDasharray="14 14"
                 mask="url(#draw-mask)"
               />
+              //Skill issue bug where the airplane is not following the aligned path
 
-              <g ref={planeWrapperRef}>
+              {/*<g ref={planeWrapperRef}>
                 <image
                   href={airplane}
                   className="[image-rendering:pixelated]"
                   width="90"
                   height="90"
                 />
-              </g>
+              </g>*/}
+
             </svg>
           </span>
         </div>

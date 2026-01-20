@@ -23,8 +23,8 @@ type FAQType = {
   answer: string;
 };
 
-export const FAQDATA: FAQType[] = [
-  {
+export const FAQDATA: FAQType[] = [{
+  
     question : "What is a [case]-based hackathon?",
     answer : "It's a case competition where participants will pitch an actualization of their solution. Judging criteria is not focused on programming ability, but instead on design, presentation, delivery and creativity of solutions."
   },

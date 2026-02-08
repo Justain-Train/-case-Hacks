@@ -93,12 +93,12 @@ export default function Navbar() {
           <NavItem href="#faq" label="FAQ" />
         </ul>
 
-        <div className="md:flex-1 justify-end hidden md:flex">
+        {/* <div className="md:flex-1 justify-end hidden md:flex">
           <SecondaryButton label="Director Hiring!" onClick={(e) => {
               e?.preventDefault();
               window.open('https://docs.google.com/forms/d/e/1FAIpQLSeu7DMbr1K5n7CQtc90yryLO0nHTyBNhhb1BS5SSrYq-EBYow/viewform', '_blank')
           }} />
-        </div>
+        </div> */}
 
         <div className="z-[10000] md:hidden">
           <button

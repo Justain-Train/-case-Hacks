@@ -131,7 +131,7 @@ export default function CTA() {
             More exciting information coming soon!
           </h1>
           <p className="mt-8 text-lg">
-            We're thrilled about our rebrand to caseHacks, the hackathon that's
+            We're thrilled about our rebrand to [case]Hacks, the hackathon that's
             redefining the traditional case-competition format...
           </p>
           <p className="mt-8 text-lg">

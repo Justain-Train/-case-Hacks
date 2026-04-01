@@ -16,26 +16,37 @@ export default function FolderCarousel() {
     setupCarouselPosition();
   }, [currentIndex]);
 
+  const prevIndexRef = useRef<number>(0);
+
   const setupCarouselPosition = () => {
     if (carouselTimeline.current) carouselTimeline.current.kill();
     carouselTimeline.current = gsap.timeline();
 
+    const total = SPONSORS.length;
+    const prevIndex = prevIndexRef.current;
+
     folderRefs.current.forEach((folder, i) => {
       if (!folder) return;
-      const distance = i - currentIndex;
-      const x = distance * 450;
-      let scale = 1;
-      let opacity = 1;
-      let z = 0;
 
-      if (Math.abs(distance) === 0) {
-        scale = 1;
-        z = -50;
-      } else {
-        scale = 0.8;
-        opacity = 0.3;
-        z = -100;
+      // Calculate shortest wrapping distance from current and previous index
+      let distance = i - currentIndex;
+      if (distance > total / 2) distance -= total;
+      if (distance < -total / 2) distance += total;
+
+      let prevDistance = i - prevIndex;
+      if (prevDistance > total / 2) prevDistance -= total;
+      if (prevDistance < -total / 2) prevDistance += total;
+
+      // If the wrapping logic flipped which side this item is on,
+      // snap it instantly to the correct side before animating
+      if (Math.sign(distance) !== Math.sign(prevDistance) && Math.abs(distance) > 1) {
+        gsap.set(folder, { x: distance * 450 });
       }
+
+      const x = distance * 450;
+      const scale = distance === 0 ? 1 : 0.8;
+      const opacity = distance === 0 ? 1 : 0.3;
+      const z = distance === 0 ? -50 : -100;
 
       carouselTimeline.current?.to(
         folder,
@@ -43,6 +54,8 @@ export default function FolderCarousel() {
         0
       );
     });
+
+    prevIndexRef.current = currentIndex;
   };
 
   const nextSlide = () =>

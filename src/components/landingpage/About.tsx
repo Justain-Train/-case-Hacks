@@ -105,7 +105,7 @@ export default function About() {
         </div>
         <div className="mt-14">
           <img
-            className="md:h-[25vw] lg:h-[18vw] border-2 border-[#52443C] drop-shadow-md opacity-70 hover:opacity-100"
+            className=" h-[50vw] md:h-[25vw] lg:h-[18vw] border-2 border-[#52443C] drop-shadow-md opacity-70 hover:opacity-100"
             src={teamphoto}
             alt="casehacksteamphoto"
             loading="lazy"

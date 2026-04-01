@@ -17,6 +17,7 @@ export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const isMobile = window.innerWidth < 768;
 
+  
   useEffect(() => {
     if (isLoaded && !isMobile) {
       gsap.registerPlugin(ScrollSmoother);

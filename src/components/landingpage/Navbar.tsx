@@ -1,6 +1,5 @@
 import NavItem from "../ui/NavItem";
 import smalllogo from "../../assets/logos/smalllogo.svg";
-import SecondaryButton from "../ui/SecondaryButton";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -92,13 +91,6 @@ export default function Navbar() {
           <NavItem href="#sponsors" label="Sponsors" />
           <NavItem href="#faq" label="FAQ" />
         </ul>
-
-        {/* <div className="md:flex-1 justify-end hidden md:flex">
-          <SecondaryButton label="Director Hiring!" onClick={(e) => {
-              e?.preventDefault();
-              window.open('https://docs.google.com/forms/d/e/1FAIpQLSeu7DMbr1K5n7CQtc90yryLO0nHTyBNhhb1BS5SSrYq-EBYow/viewform', '_blank')
-          }} />
-        </div> */}
 
         <div className="z-[10000] md:hidden">
           <button

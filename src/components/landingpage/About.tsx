@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import teamphoto from "../../assets/teamphoto.svg";
+import teamphoto from "../../assets/teamphoto.webp";
 import suitcase from "../../assets/pixelart/suitcase.png";
 import computer from "../../assets/pixelart/computer.png";
 import pin from "../../assets/pixelart/pin.png";
@@ -105,9 +105,10 @@ export default function About() {
         </div>
         <div className="mt-14">
           <img
-            className=" md:h-[25vw] lg:h-[18vw]"
+            className="md:h-[25vw] lg:h-[18vw] border-2 border-[#52443C] drop-shadow-md opacity-70 hover:opacity-100"
             src={teamphoto}
             alt="casehacksteamphoto"
+            loading="lazy"
           />
         </div>
         <div className="hidden md:block absolute md:left-[15%] md:bottom-[20%] lg:left-[22%] lg:bottom-[30%] opacity-20 hover:opacity-100 transition-opacity ease-in-out">

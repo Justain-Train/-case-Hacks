@@ -11,8 +11,8 @@ import instagram from "../../assets/socialmedialogos/instagram.svg";
 import linkedin from "../../assets/socialmedialogos/linkedin.svg";
 import x from "../../assets/socialmedialogos/x.svg";
 import caseyblink from "../../assets/pixelart/caseyblink.gif";
-import caseystare from "../../assets/pixelart/caseystare.gif";
-//  import airplane from "../../assets/pixelart/airplane.png";
+import caseystare from "../../assets/pixelart/caseystare.gif"
+import airplane from "../../assets/pixelart/airplane.png";
 import {
   getResultMessage,
   validateEmail,
@@ -137,8 +137,8 @@ export default function Hero() {
               preserveAspectRatio="xMidYMid meet"
             >
               <defs>
-                <mask id="draw-mask" maskUnits="userSpaceOnUse">
-                  <rect width="100%" height="100%" fill="black" />
+                <mask id="draw-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="431" height="415">
+                  <rect width="431" height="415" fill="black" />
 
                   <path
                     ref={maskPathRef}
@@ -160,16 +160,16 @@ export default function Hero() {
                 strokeDasharray="14 14"
                 mask="url(#draw-mask)"
               />
-              //Skill issue bug where the airplane is not following the aligned path
-
-              {/*<g ref={planeWrapperRef}>
+              <g ref={planeWrapperRef}>
                 <image
                   href={airplane}
                   className="[image-rendering:pixelated]"
+                  x="-45"
+                  y="-45"
                   width="90"
                   height="90"
                 />
-              </g>*/}
+              </g>
 
             </svg>
           </span>

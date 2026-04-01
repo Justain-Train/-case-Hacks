@@ -11,7 +11,7 @@ export default function Footer() {
           </p>
         </div>
         <div>
-          <p className="text-center">© 2025 Copyright [case]Hacks</p>
+          <p className="text-center">© 2026 Copyright [case]Hacks</p>
         </div>
       </div>
       <img

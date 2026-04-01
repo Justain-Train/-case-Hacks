@@ -131,10 +131,17 @@ export default function FAQ() {
             src={faqsmobile}
             alt="faqs_mobile"
           />
-          <div ref={faqGrid} className="grid grid-cols-1 gap-9 md:grid-cols-2 mt-8">
-            {FAQDATA.map((item, index) => (
-              <FAQTab key={index} question={item.question} answer={item.answer} />
-            ))}
+          <div ref={faqGrid} className="grid grid-cols-1 md:grid-cols-2 gap-9 mt-8">
+            <div className="flex flex-col gap-9">
+              {FAQDATA.filter((_, i) => i % 2 === 0).map((item, index) => (
+                <FAQTab key={index} question={item.question} answer={item.answer} />
+              ))}
+            </div>
+            <div className="flex flex-col gap-9">
+              {FAQDATA.filter((_, i) => i % 2 !== 0).map((item, index) => (
+                <FAQTab key={index} question={item.question} answer={item.answer} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

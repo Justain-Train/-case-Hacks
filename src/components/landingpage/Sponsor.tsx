@@ -84,7 +84,6 @@ useGSAP(() => {
 
   return (
     <section
-      id="sponsors"
       ref={sectionRef}
       className="flex flex-col items-center text-center mt-section"
     >
@@ -118,7 +117,7 @@ useGSAP(() => {
         <FolderCarousel />
       </div>
       <div className="md:max-w-[70%] lg:max-w-[60%]">
-        <h1 className="text-3xl my-10 font-semibold">
+        <h1 className="text-3xl mt-14 mb-4 font-semibold">
           Interested in becoming a sponsor?
         </h1>
         <div className="text-lg leading-[160%]">
@@ -128,7 +127,7 @@ useGSAP(() => {
             business talent. Gain brand exposure, connect with top students, and
             make a lasting impact. Let's build something great together.
           </p>
-          <p className="my-10">
+          <p className="mt-6">
             Want to be part of something <span className="font-bold">big?</span>{" "}
             Get in touch at{" "}
             <span>
@@ -142,7 +141,7 @@ useGSAP(() => {
           </p>
           <Button
             text="Sponsor [case]Hacks"
-            className="py-2 px-5 text-lg"
+            className="mt-8 py-2 px-5 text-lg"
             onClick={(e) => {
               window.location.href = "mailto:Corporate@casehacks.ca";
               e?.preventDefault();

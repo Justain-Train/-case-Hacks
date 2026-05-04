@@ -37,8 +37,8 @@ export const FAQDATA: FAQType[] = [{
     answer : "Everyone! Our competition is meant for anybody with an interest in design, development and presentation. Students of all years with a background in Business, Economics, Computer Science, Data Science or any adjacent field are all on equal footing. [case]Hacks takes the delivery of [case] competitions, with the creativity of hackathons, to deliver a competition that’s the first of its kind."
   },
   {
-    question: "When and where will the competition be?",
-    answer: "Stay tuned 😉"
+    question: "Will overnight accommodation be provided?",
+    answer: "Please note that overnight accommodation is not included. All participants are responsible for securing their own lodging."
   },
   {
     question: "Who is the handsome hawk?",

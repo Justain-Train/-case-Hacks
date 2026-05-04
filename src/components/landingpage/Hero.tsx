@@ -1,25 +1,27 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { DrawSVGPlugin, ScrollTrigger, MotionPathPlugin } from "gsap/all";
-import { useRef, useCallback, useState, useMemo } from "react";
+//import { useRef, useCallback, useState, useMemo } from "react";
+import {useRef} from "react";
 import { HashLink } from "react-router-hash-link";
 
 import biglogo from "../../assets/logos/biglogo.svg";
 import Button from "../ui/Button";
-import stars from "../../assets/pixelart/stars.svg";
 import instagram from "../../assets/socialmedialogos/instagram.svg";
 import linkedin from "../../assets/socialmedialogos/linkedin.svg";
 import x from "../../assets/socialmedialogos/x.svg";
 import caseyblink from "../../assets/pixelart/caseyblink.gif";
 import caseystare from "../../assets/pixelart/caseystare.gif"
 import airplane from "../../assets/pixelart/airplane.png";
-import {
+import calender from "../../assets/symbols/calender.svg"
+import location from "../../assets/symbols/location.svg"
+/*import {
   getResultMessage,
   validateEmail,
   ButtonStates,
   signUpForMailingList,
 } from "../../utils/mailingListUtil";
-import ResultText from "../ui/ResultText";
+import ResultText from "../ui/ResultText"; */
 
 export default function Hero() {
   gsap.registerPlugin(useGSAP, DrawSVGPlugin, ScrollTrigger, MotionPathPlugin);
@@ -27,9 +29,9 @@ export default function Hero() {
   const maskPathRef = useRef<SVGPathElement | null>(null);
   const planeWrapperRef = useRef<SVGGElement | null>(null);
   const pathRef = useRef<SVGPathElement | null>(null);
-  const [hasError, setHasError] = useState(false);
-  const [buttonState, setButtonState] = useState(ButtonStates.DEFAULT);
-  const [email, setEmail] = useState("");
+ // const [hasError, setHasError] = useState(false);
+  //const [buttonState, setButtonState] = useState(ButtonStates.DEFAULT);
+  //const [email, setEmail] = useState("");
 
   useGSAP(() => {
     if (!pathRef.current || !planeWrapperRef.current || !maskPathRef.current)
@@ -77,7 +79,7 @@ export default function Hero() {
       0
     );
   });
-
+  {/* }
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -110,13 +112,15 @@ export default function Hero() {
     [buttonState]
   );
 
+  */}
+
   return (
     <section
       id="hero"
       className="grid grid-cols-1 mt-[6rem] md:mt-[8rem] md:grid-cols-2 gap-14 3xl:max-w-[93%] justify-center items-center mx-auto"
     >
       <div className="relative inline-block">
-        <h2 className=" text-xl lg:text-2xl tracking-[10%] ">Coming Soon</h2>
+        <h2 className=" text-xl lg:text-2xl tracking-[10%] ">Applications Open</h2>
         <img
           className=" my-4 lg:my-7 h-18 md:h-29 3xl:h-34"
           src={biglogo}
@@ -128,7 +132,7 @@ export default function Hero() {
               Where Innovation Takes Flight.
             </h2>
             <svg
-              className="absolute overflow-visible translate-x-[26%] lg:translate-x-[48%] -z-1000 -translate-y-[3%] hidden md:block "
+              className="absolute overflow-visible translate-x-[26%] lg:translate-x-[48%] -z-1000 -translate-y-[4%] hidden md:block "
               width="431"
               height="415"
               viewBox="0 0 431 415"
@@ -174,16 +178,22 @@ export default function Hero() {
             </svg>
           </span>
         </div>
-        <h3 className="lg:text-lg mt-4 md:mt-7">
-          Official Date coming soon...
+        <h3 className="text-sm md:text-lg mt-4 md:mt-7">
+          <span className="font-semibold inline-flex items-center gap-2">
+            <img src={calender} alt="calendar" className="h-6 w-auto" />
+            <span>May 22-24, 2026</span>
+            <span className="inline-flex items-center justify-center h-2 w-2 rounded-full bg-[#e8c766] mx-2 flex-shrink-0" />
+            <img src={location} alt="location" className="h-6 w-auto" />
+            <span>Wilfrid Laurier University</span>
+          </span>
         </h3>
-
+      {/* 
         <form
           onSubmit={handleSubmit}
           onBlur={() => {
             setButtonState(ButtonStates.DEFAULT);
           }}
-          className=" mt-10 md:mt-11 lg:mt-12 relative border-1 border-font/50 rounded-2xl flex items-center px-3 lg:w-[30rem] md:w-[26rem] w-[24rem]"
+          className=" mt-10 md:mt-12 relative border-1 border-font/50 rounded-2xl flex items-center px-3 lg:w-[30rem] md:w-[26rem] w-[24rem]"
         >
           <img className="mr-3 h-4 md:h-6 " src={stars} alt="stars" />
           <input
@@ -213,9 +223,18 @@ export default function Hero() {
             aria-label="Submit Email"
           />
         </form>
-        {(hasError || buttonState === ButtonStates.SUBMITTED) && (
+        */}
+
+        {/* {(hasError || buttonState === ButtonStates.SUBMITTED) && (
           <ResultText resultMessage={resultMessage} hasError={hasError} />
-        )}
+        )}*/}
+
+        <Button 
+          text="Apply Now!" 
+          className="py-2 px-5 text-sm md:text-lg lg:text-rg mt-7 md:mt-10"
+          onClick={() => {
+              window.open("https://form.typeform.com/to/kmEKanSn", "_blank"); 
+          }}/>
         <p className="my-6 md:text-rg lg:text-lg">
           Interested in sponsoring? Learn more{" "}
           <HashLink

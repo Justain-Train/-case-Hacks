@@ -3,7 +3,7 @@ import footerscenemobile from "../../assets/pixelart/footerscenemobile.png";
 
 export default function Footer() {
   return (
-    <section className="mt-section relative flex flex-col items-center">
+    <section className="mt-10 relative flex flex-col items-center ">
       <div className="flex flex-col items-center justify-center gap-4 mb-8">
         <div>
           <p className="text-xl font-semibold text-center">
@@ -15,7 +15,7 @@ export default function Footer() {
         </div>
       </div>
       <img
-        className="3xl:w-[65%] w-[100%] [image-rendering:pixelated] hidden md:block"
+        className="w-[100%] [image-rendering:pixelated] hidden md:block"
         src={footerscene}
         alt="pixelartFooterScene"
       />

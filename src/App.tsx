@@ -6,12 +6,17 @@ import { ScrollSmoother } from "gsap/all";
 const Navbar = lazy(() => import("./components/landingpage/Navbar"));
 const Hero = lazy(() => import("./components/landingpage/Hero"));
 const About = lazy(() => import("./components/landingpage/About"));
+const Why = lazy(() => import("./components/landingpage/Why"));
+const MainSponsor = lazy(() => import("./components/landingpage/MainSponsor"));
+const Partners = lazy(() => import("./components/landingpage/Partners"));
 const Sponsor = lazy(() => import("./components/landingpage/Sponsor"));
 const FAQ = lazy(() => import("./components/landingpage/FAQ"));
-const CTA = lazy(() => import("./components/landingpage/CTA"));
 const Footer = lazy(() => import("./components/landingpage/Footer"));
 import Loader from "./components/ui/Loader";
 import GrainBackground from "./components/ui/GrainBackground";
+import MeetTheTeam from "./components/landingpage/MeetTheTeam";
+
+
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,10 +51,13 @@ export default function App() {
             <div className="px-[3%] md:px-[5%] lg:px-[9%] 2xl:px-[13%] 3xl:px-[25%] md:pt-[2%] pt-6">
               <Hero />
               <About />
+              <Why/>
+              <MainSponsor />
+              <Partners/>
               <Sponsor />
               <FAQ />
-              <CTA />
             </div>
+            <MeetTheTeam />
             <Footer />
           </div>
         </div>

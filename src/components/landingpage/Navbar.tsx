@@ -86,8 +86,9 @@ export default function Navbar() {
           </a>
         </div>
 
-        <ul className="md:flex md:flex-1 items-center hidden justify-center text-lg md:space-x-10 lg:space-x-12 font-semibold">
+        <ul className="md:flex md:flex-1 items-center hidden justify-end text-lg md:space-x-10 lg:space-x-12 font-semibold">
           <NavItem href="#about" label="About Us" />
+          <NavItem href="#why" label="Why?" />
           <NavItem href="#sponsors" label="Sponsors" />
           <NavItem href="#faq" label="FAQ" />
         </ul>

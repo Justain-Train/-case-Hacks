@@ -13,6 +13,11 @@ export default function About() {
   const container = useRef<HTMLDivElement | null>(null);
   const headText = useRef<HTMLHeadingElement | null>(null);
   const bodyText = useRef<HTMLDivElement | null>(null);
+  const suitcaseRef = useRef<HTMLImageElement | null>(null);
+  const computerRef = useRef<HTMLImageElement | null>(null);
+  const pinRef = useRef<HTMLImageElement | null>(null);
+  const paperRef = useRef<HTMLImageElement | null>(null);
+  const suprisedCaseyRef = useRef<HTMLImageElement | null>(null);
 
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -81,6 +86,43 @@ export default function About() {
 
   return () => mm.revert(); 
 });
+
+  useGSAP(() => {
+    const floatingItems = [
+      { ref: suitcaseRef },
+      { ref: computerRef, syncRef: suprisedCaseyRef },
+      { ref: pinRef },
+      { ref: paperRef },
+    ];
+
+    floatingItems.forEach((item) => {
+      if (item.ref.current) {
+        const duration = 2 + Math.random() * 1.5;
+        const delay = Math.random() * 3;
+
+        gsap.to(item.ref.current, {
+          y: -15,
+          duration: duration,
+          repeat: -1,
+          yoyo: true,
+          delay: delay,
+          ease: "sine.inOut",
+        });
+
+        // Apply same animation to synced ref (surprised casey on computer)
+        if (item.syncRef && item.syncRef.current) {
+          gsap.to(item.syncRef.current, {
+            y: -15,
+            duration: duration,
+            repeat: -1,
+            yoyo: true,
+            delay: delay,
+            ease: "sine.inOut",
+          });
+        }
+      }
+    });
+  });
   return (
     <div ref={container} className="mt-section" id="about">
       <div
@@ -103,9 +145,9 @@ export default function About() {
             build skills, networks and lasting memories for years to come.
           </p>
         </div>
-        <div className="mt-14">
+        <div className="mt-12">
           <img
-            className=" h-[50vw] md:h-[25vw] lg:h-[18vw] border-2 border-[#52443C] drop-shadow-md opacity-70 hover:opacity-100"
+            className=" h-[50vw] md:h-[25vw] lg:h-[18vw] border-2 border-[#52443C] drop-shadow-md"
             src={teamphoto}
             alt="casehacksteamphoto"
             loading="lazy"
@@ -113,6 +155,7 @@ export default function About() {
         </div>
         <div className="hidden md:block absolute md:left-[15%] md:bottom-[20%] lg:left-[22%] lg:bottom-[30%] opacity-20 hover:opacity-100 transition-opacity ease-in-out">
           <img
+            ref={suitcaseRef}
             height={125}
             width={125}
             className="rotate-18"
@@ -122,6 +165,7 @@ export default function About() {
         </div>
         <div className="hidden md:block absolute md:right-[15%] md:bottom-[20%] lg:right-[22%] lg:bottom-[33%] opacity-20 hover:opacity-100 transition-opacity ease-in-out ">
           <img
+            ref={computerRef}
             height={125}
             width={125}
             className="rotate-18 relative"
@@ -129,6 +173,7 @@ export default function About() {
             alt="computer"
           />
           <img
+            ref={suprisedCaseyRef}
             height={40}
             width={40}
             className=" md:block rotate-18 absolute md:left-[26%] md:top-[15%] lg:left-[26%] lg:top-[15%] "
@@ -138,6 +183,7 @@ export default function About() {
         </div>
         <div className="top-0 left-0 md:block absolute md:left-[3%] md:top-[5%] lg:left-[10%] lg:top-[12%]  opacity-20 hover:opacity-100 transition-opacity ease-in-out ">
           <img
+            ref={pinRef}
             height={70}
             width={70}
             className="rotate-18 "
@@ -147,6 +193,7 @@ export default function About() {
         </div>
         <div className="top-0 right-0 md:block absolute md:right-[3%] md:top-[4%] lg:right-[10%] lg:top-[5%] opacity-20 hover:opacity-100 transition-opacity ease-in-out ">
           <img
+            ref={paperRef}
             height={70}
             width={70}
             className="-rotate-17 "

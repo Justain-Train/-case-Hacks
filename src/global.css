@@ -22,3 +22,43 @@
   }
 }
 
+@layer components {
+  .team-carousel {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 0;
+  }
+
+  .team-marquee {
+    display: flex;
+    gap: 0.5rem;
+    width: max-content;
+    animation: team-scroll 120s linear infinite;
+    will-change: transform;
+  }
+
+  .team-carousel:hover .team-marquee {
+    animation-play-state: paused;
+  }
+
+  .team-card {
+    flex: 0 0 auto;
+    width: min(22rem, 80vw);
+    padding: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .team-card:hover {
+    transform: translateY(-0.25rem);
+  }
+
+  @keyframes team-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+

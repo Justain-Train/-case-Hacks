@@ -120,7 +120,7 @@ export default function Hero() {
       className="grid grid-cols-1 mt-[6rem] md:mt-[8rem] md:grid-cols-2 gap-14 3xl:max-w-[93%] justify-center items-center mx-auto"
     >
       <div className="relative inline-block">
-        <h2 className=" text-xl lg:text-2xl tracking-[10%] ">Applications Open</h2>
+        <h2 className=" text-xl lg:text-2xl tracking-[10%] ">Applications Closed</h2>
         <img
           className=" my-4 lg:my-7 h-18 md:h-29 3xl:h-34"
           src={biglogo}
@@ -230,11 +230,13 @@ export default function Hero() {
         )}*/}
 
         <Button 
-          text="Apply Now!" 
+          text="Application Closed" 
           className="py-2 px-5 text-sm md:text-lg lg:text-rg mt-7 md:mt-10"
           onClick={() => {
-              window.open("https://form.typeform.com/to/kmEKanSn", "_blank"); 
-          }}/>
+            // No action needed since the button is disabled
+          }}
+          disabled
+        />
         <p className="my-6 md:text-rg lg:text-lg">
           Interested in sponsoring? Learn more{" "}
           <HashLink

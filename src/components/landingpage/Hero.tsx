@@ -10,6 +10,7 @@ import Button from "../ui/Button";
 import instagram from "../../assets/socialmedialogos/instagram.svg";
 import linkedin from "../../assets/socialmedialogos/linkedin.svg";
 import x from "../../assets/socialmedialogos/x.svg";
+import discord from "../../assets/socialmedialogos/discord.svg";
 import caseyblink from "../../assets/pixelart/caseyblink.gif";
 import caseystare from "../../assets/pixelart/caseystare.gif"
 import airplane from "../../assets/pixelart/airplane.png";
@@ -287,6 +288,20 @@ export default function Hero() {
                 className="h-5 hover:-translate-y-0.5 transition ease-in-out duration-300"
                 src={x}
                 alt="x"
+              />
+            </a>
+          </div>
+           <div>
+            <a
+              aria-label="X"
+              href="https://discord.gg/tbYZvx9dRv"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="h-5 hover:-translate-y-0.5 transition ease-in-out duration-300"
+                src={discord}
+                alt="discord"
               />
             </a>
           </div>
